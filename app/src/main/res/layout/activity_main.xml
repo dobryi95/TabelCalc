@@ -6,111 +6,148 @@
     android:layout_height="match_parent"
     tools:context="com.example.ulrikh.tabelcalc.MainActivity">
 
-    <EditText
-        android:id="@+id/priceObnojenka"
-        android:layout_width="150dp"
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:hint="цена обнаженка"
-        android:text=""
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:text="0,00"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/priceObnojenka"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:hint="цена фигура"
+        android:inputType="numberDecimal"
+        android:nextFocusUp="@+id/pricePortret"
+        android:text=""
+        app:layout_constraintEnd_toStartOf="@+id/memoryRead"
+        app:layout_constraintStart_toStartOf="@+id/result"
+        app:layout_constraintTop_toBottomOf="@+id/result" />
 
     <EditText
         android:id="@+id/pricePortret"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:hint="цена портрет"
-        android:text=""
+        android:inputType="numberDecimal"
+        android:nextFocusUp="@+id/hObnojenka"
         android:singleLine="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="160dp"
-        android:layout_marginStart="160dp" />
+        android:text=""
+        app:layout_constraintEnd_toEndOf="@+id/result"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/memoryRead"
+        app:layout_constraintTop_toTopOf="@+id/priceObnojenka" />
 
     <EditText
         android:id="@+id/hObnojenka"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="90dp"
-        android:ems="10"
-        android:inputType="number"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
         android:hint="кол-во часов"
-        android:text=""
+        android:inputType="number"
+        android:nextFocusUp="@+id/hPortret"
         android:singleLine="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text=""
+        app:layout_constraintEnd_toStartOf="@+id/memoryRead"
+        app:layout_constraintStart_toStartOf="@+id/result"
+        app:layout_constraintTop_toBottomOf="@+id/ndfl" />
 
     <EditText
         android:id="@+id/hPortret"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="90dp"
-        android:ems="10"
-        android:inputType="number"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:hint="кол-во часов"
-        android:text=""
+        android:inputType="number"
+        android:nextFocusUp="@+id/result"
         android:singleLine="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="160dp"
-        android:layout_marginStart="160dp" />
+        android:text=""
+        app:layout_constraintEnd_toEndOf="@+id/pricePortret"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/memoryRead"
+        app:layout_constraintTop_toTopOf="@+id/hObnojenka" />
 
     <Button
         android:id="@+id/enter"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:button_weight="1"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="0dp"
+        android:layout_marginVertical="0dp"
         android:text="посчитать"
-        tools:ignore="MissingConstraints"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="150dp"/>
+        app:layout_constraintEnd_toEndOf="@+id/pricePortret"
+        app:layout_constraintStart_toStartOf="@+id/priceObnojenka"
+        app:layout_constraintTop_toBottomOf="@+id/hObnojenka"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/memoryPlus"
+        android:layout_width="0dp"
+        android:button_weight="1"
+        android:layout_height="match_parent"
+        android:text="M+"
+        app:layout_constraintEnd_toStartOf="@+id/memoryMinus"
+        app:layout_constraintStart_toStartOf="@+id/result"
+        app:layout_constraintTop_toBottomOf="@+id/enter"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/memoryMinus"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:text="M-"
+        app:layout_constraintEnd_toStartOf="@+id/memoryRead"
+        app:layout_constraintStart_toEndOf="@+id/memoryPlus"
+        app:layout_constraintTop_toTopOf="@+id/memoryPlus"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/memoryRead"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:text="MR"
+        app:layout_constraintEnd_toStartOf="@+id/memoryClear"
+        app:layout_constraintStart_toEndOf="@+id/memoryMinus"
+        app:layout_constraintTop_toTopOf="@+id/memoryPlus"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/memoryClear"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:text="MC"
+        app:layout_constraintEnd_toEndOf="@+id/result"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/memoryRead"
+        app:layout_constraintTop_toTopOf="@+id/memoryPlus"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/clear"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="200dp"
-        android:text="сбросить"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:text="очистить"
+        app:layout_constraintEnd_toEndOf="@+id/pricePortret"
+        app:layout_constraintStart_toStartOf="@+id/priceObnojenka"
+        app:layout_constraintTop_toBottomOf="@+id/memoryPlus"
         tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/result"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:textSize="40dp"
-        android:text="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="260dp" />
 
     <CheckBox
         android:id="@+id/ndfl"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Вычитывать 13% НДФЛ"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="50dp"
-        />
-
+        app:layout_constraintStart_toStartOf="@+id/priceObnojenka"
+        app:layout_constraintTop_toBottomOf="@+id/priceObnojenka" />
 </android.support.constraint.ConstraintLayout>
